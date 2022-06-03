@@ -1,18 +1,8 @@
 package com.example.microservice1;
 
-
-
-
-
-
-
-
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -42,24 +32,18 @@ public class MainResource {
                     @ApiResponse(responseCode = "404", description = "Пациент не найден")
             })
     public Response GetPatientInfo(@FormParam("snils") String snils) {
-        /*return Response.status(Response.Status.OK).
-                entity("Heelooo worldd")
-                .build();*/
 
-        //Class.forName("org.postgresql.Driver");
-        if(snils==null)    return Response.status(400).
+        if(snils==null)
+            return Response.status(400).
                 entity("Снилс не указан (snils=)")
                 .build();
 
-        try {
-            Long SnilsNum= Long.parseLong(snils);
-        }
-        catch ( NumberFormatException e)
-        {
-            return Response.status(400).
+        try {  Long SnilsNum= Long.parseLong(snils);  }
+        catch ( NumberFormatException e) {return Response.status(400).
                     entity("Не верный формат снилс")
                     .build();
         }
+
 
 
 
