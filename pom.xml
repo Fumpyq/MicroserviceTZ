@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+
+    <groupId>com.example</groupId>
+    <artifactId>Microservice1</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Microservice1</name>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <junit.version>42.3.4</junit.version>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0.SP1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.json.bind</groupId>
+            <artifactId>javax.json.bind-api</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
+            <version>4.6.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson2-provider</artifactId>
+            <version>4.6.0.Final</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>42.3.6</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations -->
+        <!-- <dependency>
+             <groupId>io.swagger.core.v3</groupId>
+             <artifactId>swagger-annotations</artifactId>
+             <version>2.2.0</version>
+         </dependency>-->
+         <!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
+        <!-- <dependency>
+           <groupId>io.swagger</groupId>
+           <artifactId>swagger-jaxrs</artifactId>
+           <version>1.6.6</version>
+       </dependency>-->
+
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.4</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.swagger/swagger-jaxrs -->
+        <!--<dependency>
+           <groupId>io.swagger</groupId>
+           <artifactId>swagger-jaxrs</artifactId>
+           <version>1.6.6</version>
+       </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.swagger/swagger-codegen-maven-plugin -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-codegen-maven-plugin</artifactId>
+            <version>3.0.0-rc1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/build-helper-maven-plugin -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+        <!-- <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-jaxrs2 -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-jaxrs2-servlet-initializer-v2</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+
+     </dependencies>
+
+  <build>
+
+      <plugins>
+          <!-- <plugin>
+               <groupId>io.swagger</groupId>
+               <artifactId>swagger-codegen-maven-plugin</artifactId>
+               <version>3.0.0-rc1</version>
+               <executions>
+                   <execution>
+                       <goals>
+                           <goal>generate</goal>
+                       </goals>
+                       <configuration>
+                           <inputSpec>${project.basedir}/src/main/resources/swagger.yaml</inputSpec>
+                           <language>spring</language>
+                           <library>spring-boot</library>
+                           <apiPackage>com.allaroundjava.controller</apiPackage>
+                           <modelPackage>com.allaroundjava.dto</modelPackage>
+                           <generateApis>true</generateApis>
+                           <generateApiTests>false</generateApiTests>
+                           <generateModelTests>false</generateModelTests>
+                           <generateApiDocumentation>false</generateApiDocumentation>
+                           <generateModels>false</generateModels>
+                           <generateSupportingFiles>false</generateSupportingFiles>
+                           <languageSpecificPrimitives>true</languageSpecificPrimitives>
+                           <typeMappings>
+                               <typeMapping>OffsetDateTime=java.time.LocalDateTime</typeMapping>
+                           </typeMappings>
+                           <importMappings>
+                               <importMapping>LocalDateTime=OffsetDateTime</importMapping>
+                           </importMappings>
+                           <configOptions>
+                               <interfaceOnly>true</interfaceOnly>
+                               <java8>false</java8>
+                               <dateLibrary>java8</dateLibrary>
+                           </configOptions>
+                       </configuration>
+                   </execution>
+               </executions>
+           </plugin>
+           <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>build-helper-maven-plugin</artifactId>
+               <version>3.3.0</version>
+               <executions>
+                   <execution>
+                       <phase>generate-sources</phase>
+                       <goals>
+                           <goal>add-source</goal>
+                       </goals>
+                       <configuration>
+                           <sources>
+                               <source>${project.build.directory}/generated-sources/swagger/src/main/java</source>
+                           </sources>
+                       </configuration>
+                   </execution>
+               </executions>
+           </plugin>-->
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+              <version>3.3.2</version>
+          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>10</source>
+                  <target>10</target>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+ </project>
